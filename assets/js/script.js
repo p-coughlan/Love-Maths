@@ -44,6 +44,8 @@ function runGame(gameType) {
         displayMultiplyQuestion(num1, num2);
     } else if (gameType === "subtract") {
         displaySubtractQuestion(num1, num2);
+    } else if (gameType === "division") {
+        displayDivisonQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -87,6 +89,8 @@ function calculateCorrectAnswer() {
         return [operand1 * operand2, "multiply"];
     } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
+    } else if (operator === "/") {
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -136,24 +140,10 @@ function displayMultiplyQuestion(operand1, operand2) {
 
 }
 
-/*
-Your Challenge Is:
-
-Add the division game type to the runGame function
-Add the displayDivisionQuestion function
-Modify the calculateCorrectAnswer function to return the correct answer and game type.
-
-How to create a divison game that returns a whole number answer
-1. Create a new function called displayDivisonQuestion() that takes two parameters: operand1 and operand2
-2. Inside the function, set the text content of the 1st operand element to be the larger of the two numbers as in our subtraction game
-3. Set the text content of the 2nd operand element to be the smaller of the two numbers as in our subtraction game
-5. How do we ennsure the result is a whole number???? 
-*/
-
 function displayDivisonQuestion(operand1, operand2) {
     
-    document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2;
-    document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
+    document.getElementById("operand1").textContent = operand1 * operand2;
+    document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "/";
 
 }
