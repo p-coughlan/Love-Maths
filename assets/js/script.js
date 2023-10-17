@@ -12,17 +12,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 let gameType = this.getAttribute("data-type");
                 runGame(gameType);
             }
-        })
+        });
     }
 
     document.getElementById("answer-box").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             checkAnswer();
         }
-    })
+    });
 
     runGame("addition");
-})
+});
 
 /**
  * The main game "loop", called when the script is first loaded
@@ -50,7 +50,6 @@ function runGame(gameType) {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
-
 }
 
 /**
@@ -69,10 +68,11 @@ function checkAnswer() {
     } else {
         alert(`Awwww... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
         incrementWrongAnswer();
+    }
     runGame(calculatedAnswer[1]);
     
 }
-}
+
 
 /**
  * Gets the operands (the numbers) and the operator (plus, minus etc)
@@ -142,7 +142,7 @@ function displayMultiplyQuestion(operand1, operand2) {
 
 function displayDivisionQuestion(operand1, operand2) {
     
-    document.getElementById("operand1").textContent = operand1 * operand2;
+    document.getElementById("operand1").textContent = (operand1 * operand2);
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "/";
 
